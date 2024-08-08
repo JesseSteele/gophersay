@@ -1,2 +1,3 @@
 # gophersay
-The talking gopher
+## The talking gopher
+Gopher talkback written in Go for Linux
