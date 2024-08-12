@@ -2,6 +2,24 @@
 ## The talking gopher
 Gopher talkback written in Go for Linux
 
+```
+ ------------------------------------------------- 
+< I am a talking gopher, written in Go for Linux. >
+< (See what I did there?)                         >
+ ------------------------------------------------- 
+                                                \ \
+                                                 \\
+                                                  \ (o)—————(o)
+                                                     / Q   Q \
+                                                    |   o@o   |
+                                                    |    W    |
+                                                   c|         |ɔ
+                                                    |         |
+                                                    |         |
+                                                     \_______/
+                                                     C       Ɔ
+```
+
 - Using a `.go` script as source for the local compiler
 - For alternate ways to build and compile the same `gophersay` package, see `git` repos:
   - [gophersay-tar](https://github.com/JesseSteele/gophersay-tar) (from local tarball)
