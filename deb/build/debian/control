@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 10), golang-go
 Standards-Version: 3.9.6
 
 Package: gophersay
-Version: 1.0.0
+#Version: 1.0.0 # No! Inherited from `debian/changelog`
 Architecture: all
 Depends: bash (>= 4.0)
 Description: Gopher talkback written in Go for Linux
