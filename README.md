@@ -183,6 +183,7 @@ deb/
    └─ gophersay.go
 ```
 
+#### Create Mainainer Package Director Structure
 - Create directories: `deb/build/debian`
 - In `debian/` create file: `control`
   - Learn about the [Debian source package template control file](https://www.debian.org/doc/debian-policy/ch-controlfields.html#debian-source-package-template-control-files-debian-control)
@@ -266,6 +267,8 @@ gophersay /usr/bin
 ```
 
 - Place files `gophersay.go` & `go.mod` in `deb/build/`
+
+#### Build the Package Directories
 - Install the `dpkg-dev`, `debhelper` & `golang-go` packages
 
 | **Install Debian `dpkg-dev` package** :$
@@ -288,7 +291,7 @@ sudo dpkg-buildpackage -us -uc  # Create the package builder
 - Note what just happened
   - Everything just done to this point is called "**maintainer**" work in the Debian world
   - Basic repo packages *and also* the package `DEBIAN/` builder structure were greated
-  - At this point, one could navigate up one directory to `deb/` and run `sudo dpkg -i gophersay_1.0-1_all.deb` and the package would be installed, *but we won't do this*
+  - At this point, one could navigate up one directory to `deb/` and run `sudo dpkg -i gophersay_1.0.0-1_all.deb` and the package would be installed, *but we won't do this*
   - The command has also been created at `/usr/bin/gophersay`
     - Once installed with `sudo dpkg -i` (later) this can be removed the standard way with `sudo apt-get remove gophersay`
   - This is the new, just-created directory structure for the standard Debian package builder:
@@ -331,7 +334,7 @@ sudo dpkg -i gophersay.deb  # Install the package
     - Trying to install a file will return an [error from the package manager](https://unix.stackexchange.com/questions/409800/) since it expects directories, but only finds a file
   - The standard package build files (for `dpkg-deb --build`) will appear at `deb/build/debian/gophersay/DEBIAN/`
     - So from `deb/build/debian/` one could run `dpkg-deb --build gophersay` to create the `.deb` package at `deb/build/debian/gophersay.deb`
-  - The standard package installer will appear at `deb/gophersay_1.0-1_all.deb`
+  - The standard package installer will appear at `deb/gophersay_1.0.0-1_all.deb`
 
 | **Remove Debian package** :$ (optional)
 
