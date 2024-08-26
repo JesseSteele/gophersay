@@ -9,11 +9,11 @@ license=('GPL')
 depends=('go')      # Depends on the 'go' package to build the binary
 replaces=('gophersay-tar' 'gophersay-git')
 source=("$pkgname.go")
-sha256sums=('26ebde65cd84a50cbca4146ca8fe78e88da7cb0dc2520768de0c2a1066cc5b4d')
+sha256sums=('26ebde65cd84a50cbca4146ca8fe78e88da7cb0dc2520768de0c2a1066cc5b4d')  # Hash for gophersay.go only
 
 build() {
   # Get into the root, where our to-be-compiled files are
-  cd $srcdir
+  cd "$srcdir"
 
   # Compile the Go binary
   go build -o "$pkgname" "$pkgname.go"
