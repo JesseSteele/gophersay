@@ -109,12 +109,14 @@ arch/
 pkgname=gophersay
 pkgver=1.0.0
 pkgrel=1
-pkgdesc="Gopher talkback written in Go for Linux"
+pkgdesc="Gopher talkback written in Go for Linux (source)"
 url="https://github.com/JesseSteele/gophersay"
 arch=('x86_64')     # Go is newer and may not work on older systems, so not 'any'
 license=('GPL')
 depends=('go')      # Depends on the 'go' package to build the binary
-replaces=('gophersay-tar' 'gophersay-git')
+provides=('gophersay')
+replaces=('gophersay-bin' 'gophersay-git' 'gophersay-tar')
+conflicts=('gophersay-bin' 'gophersay-git' 'gophersay-tar')
 source=("$pkgname.go")
 sha256sums=('26ebde65cd84a50cbca4146ca8fe78e88da7cb0dc2520768de0c2a1066cc5b4d')  # Hash for gophersay.go only
 
@@ -205,7 +207,10 @@ Package: gophersay
 #Version: 1.0.0 # No! Inherited from `debian/changelog`
 Architecture: all
 Depends: bash (>= 4.0)
-Description: Gopher talkback written in Go for Linux
+Replaces: gophersay-bin, gophersay-git, gophersay-tar
+Conflicts: gophersay-bin, gophersay-git, gophersay-tar
+Provides: gophersay
+Description: Gopher talkback written in Go for Linux (source)
 ```
 
 - In `debian/` create file: `compat`
@@ -378,9 +383,12 @@ Source0:        gophersay-1.0.0.tar.xz
 BuildArch:      noarch
 BuildRequires:  go
 Requires:       bash
+Obsoletes:      gophersay-bin gophersay-git gophersay-tar
+Conflicts:      gophersay-bin gophersay-git gophersay-tar
+Provides:       gophersay
 
 %description
-Gopher talkback written in Go for Linux
+Gopher talkback written in Go for Linux (source)
 
 %prep
 %setup -q

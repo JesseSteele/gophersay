@@ -10,9 +10,12 @@ Source0:        gophersay-1.0.0.tar.xz
 BuildArch:      noarch
 BuildRequires:  go
 Requires:       bash
+Obsoletes:      gophersay-bin gophersay-git gophersay-tar
+Conflicts:      gophersay-bin gophersay-git gophersay-tar
+Provides:       gophersay
 
 %description
-Gopher talkback written in Go for Linux
+Gopher talkback written in Go for Linux (source)
 
 %prep
 %setup -q
